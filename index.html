@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soojuspumpade Seadustamine - Professionaalne Abi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1e4d7b;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero-bg.jpg') center center;
+            background-size: cover;
+            color: white;
+            padding: 200px 2rem 150px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1e4d7b;
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #7f8c8d;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Image Section */
+        .image-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: white;
+        }
+
+        .pricing-box {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .pricing-box h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-box p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-box .note {
+            color: #95a5a6;
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #f8f9fa;
+        }
+
+        .testimonial-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-icon {
+            font-size: 3rem;
+            color: #1e4d7b;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-location {
+            color: #95a5a6;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: #1e4d7b;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .contact-card a {
+            color: #1e4d7b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-placeholder {
+            color: #bdc3c7;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 150px 1rem 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Soojuspumbad</div>
+            <ul>
+                <li><a href="#avaleht">Avaleht</a></li>
+                <li><a href="#teenused">Teenused</a></li>
+                <li><a href="#hinnad">Hinnad</a></li>
+                <li><a href="#tagasiside">Tagasiside</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="avaleht" class="hero">
+        <h1>Soojuspumpade seadustamine</h1>
+        <p>Professionaalne abi soojuspumpade seadustamisel. Jooniste koostamine, dokumentide vormistamine ja registrisse kandmine.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="teenused">
+        <div class="container">
+            <h2>Meie Teenused</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Jooniste Koostamine</h3>
+                    <p>Koostame täpsed projekti joonised vastavalt kehtivatele normidele ja nõuetele. Joonised sisaldavad kõiki vajalikke detaile soojuspumba seadustamiseks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Dokumentide Koostamine</h3>
+                    <p>Vormistame kõik vajalikud dokumendid soojuspumba seadustamiseks. Tagame, et kõik paberid on korrektselt täidetud ja vastavad nõuetele.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Registrisse Kandmine</h3>
+                    <p>Esitame kõik dokumendid vastavatele asutustele ja viime läbi registreerimise protsessi. Teie soojuspump on seaduslikult registreeritud.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="image-section">
+        <img src="house-image.jpg" alt="Soojuspumbaga maja" style="max-width: 800px;">
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="hinnad" class="pricing-section">
+        <div class="container">
+            <h2>Hinnad</h2>
+            <div class="pricing-box">
+                <h3>Hinnakiri</h3>
+                <p>Hinnakiri koostatakse peagi.</p>
+                <p class="note">Täpsema hinnapakkumise saamiseks võtke meiega ühendust.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="tagasiside" class="testimonials-section">
+        <div class="container">
+            <h2>Klientide Tagasiside</h2>
+            <div class="testimonial-card">
+                <div class="testimonial-icon">💬</div>
+                <p class="testimonial-text">"Väga professionaalne teenindus ja kvaliteetne töö! Soojuspumba paigaldus läks sujuvalt ja meeskond oli väga asjatundlik. Soovitan soojalt!"</p>
+                <p class="testimonial-author">Maris K.</p>
+                <p class="testimonial-location">Tallinn</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="contact-section">
+        <div class="container">
+            <h2>Võta Ühendust</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>E-post</h3>
+                    <p><a href="mailto:projektijoonis@gmail.com">projektijoonis@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Asukoht</h3>
+                    <p>Lõuna-Eesti</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Telefon</h3>
+                    <p class="contact-placeholder">Lisatakse peagi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Soojuspumpade Seadustamine</p>
+        <p>Professionaalne abi soojuspumpade seadustamisel</p>
+    </footer>
+</body>
+</html>
